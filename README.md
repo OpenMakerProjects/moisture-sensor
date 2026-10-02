@@ -1,42 +1,55 @@
-# Moisture Sensor
+<h1>Interfacing with Moisture Sensor</h1>
 
-This repository is a curated project extracted from the OpenMakerProjects review archive.
+<div>
+    <img width=650 align=right src="https://github.com/Electroversity/Electroverse/blob/main/Basics%202/20-Moisture%20Sensor/moisture%20working.gif">
+    <p>Here we deal with interfacing a Moisture Sensor with an arduino where we have used 5 LEDs of different colours to determine the level of water content when the sensor is placed in the soil or wherever needed.<br><br>
+  Have Fun !</p>
+    
+  <h3>Components Required</h3>
+  <ol>
+    <li>5x LEDs</li>
+    <li>1x Moisture sensor</li>
+    <li>1x Resistor of 220 ohms</li>
+    <li>Breadboard mini</li>
+    <li>Jumper Wires</li>
+    <li>Arduino UNO</li>
+  </ol>
+    
+</div>
 
-## Provenance and licence
 
-- Original source: [Electroversity/Electroverse](https://github.com/Electroversity/Electroverse/tree/d661c40bc334bf8fd5da54e7ca89bb644775e4a9/Basics 2/20-Moisture Sensor)
-- Reviewed upstream revision: `d661c40bc334bf8fd5da54e7ca89bb644775e4a9`
-- Licence: `MIT`; see [LICENSE](LICENSE)
-- Exact source-file matches used for provenance: 2
+  
+## CODE
 
-The archived upstream documentation is preserved in [UPSTREAM_README.md](UPSTREAM_README.md).
-
-## Supported board
-
-- Arduino Uno/ATmega328P-compatible board
-
-## Parts list
-
-Detected or documented parts; verify quantities and ratings against the upstream documentation:
-
-- Arduino Uno-compatible board
-- Moisture sensor
-
-## Required libraries
-
-- `No external include was detected; verify against the target board core`
-
-## Schematic status
-
-No machine-readable schematic is included. Consult the linked upstream source and verify all wiring before building.
-
-## Security and build status
-
-- No password, Wi-Fi credential, token, API-key or private-key signature was detected in the prepared files.
-- Executables, APKs, installers, nested archives and compiled firmware are excluded.
-- The project has not been independently hardware-tested by OpenMakerProjects.
-- Review voltage levels, current limits, grounding and external-load isolation before building.
-
-## Review workflow
-
-The initial import is submitted through a protected pull request. An independent approval is required before it can be merged into `main`.
+Important part of the code i.e., the main Logic
+```C++
+ if (moisture < 200) 
+  {
+    digitalWrite(12, HIGH);
+  } 
+  else 
+  {
+    if (moisture < 400) 
+    {
+      digitalWrite(11, HIGH);
+    } 
+    else 
+    {
+      if (moisture < 600) 
+      {
+        digitalWrite(10, HIGH);
+      } 
+      else 
+      {
+        if (moisture < 800) 
+        {
+          digitalWrite(9, HIGH);
+        } 
+        else 
+        {
+          digitalWrite(8, HIGH);
+        }
+      }
+    }
+  }
+```
